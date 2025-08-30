@@ -1,4 +1,4 @@
-# Rainbow Bot 🌈
+# Glow Game Bot 🌈
 
 A Telegram bot that helps strengthen relationships through daily rainbow-themed challenges, built with Python, FastAPI, and SQLAlchemy.
 
