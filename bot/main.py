@@ -131,7 +131,7 @@ if __name__ == "__main__":
     settings = get_settings()
     
     uvicorn.run(
-        "main:app",
+        "bot.main:app",
         host=settings.host,
         port=settings.port,
         reload=settings.debug
