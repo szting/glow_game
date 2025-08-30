@@ -50,7 +50,8 @@ async def webhook_options():
     return {"status": "ok"}
 
 @app.post("/webhook")
-async def webhook(request: Request):
+async def webhook_post(request: Request):
+    """Handle POST requests from Telegram with update data"""
     logger.info("Webhook POST received!")
 
     if not bot:
@@ -81,6 +82,24 @@ async def webhook(request: Request):
     except Exception as e:
         logger.error(f"Error in webhook: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.api_route("/webhook", methods=["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD"])
+async def webhook_all(request: Request):
+    """Catch-all webhook handler for all HTTP methods"""
+    method = request.method
+    
+    if method == "GET":
+        return await webhook_test()
+    elif method == "POST":
+        return await webhook_post(request)
+    elif method == "OPTIONS":
+        return await webhook_options()
+    else:
+        return {
+            "message": f"Method {method} not supported for webhook",
+            "supported_methods": ["GET", "POST", "OPTIONS"],
+            "status": "method_not_allowed"
+        }
 
 @app.get("/webhook")
 async def webhook_test():
