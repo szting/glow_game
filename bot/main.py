@@ -3,12 +3,18 @@ import logging
 from contextlib import asynccontextmanager
 from typing import Dict, Any
 
-from fastapi import FastAPI, Request
-from telegram import Update
-from telegram.ext import (
-    Application, CommandHandler, CallbackQueryHandler, 
-    MessageHandler, filters, ContextTypes
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="Rainbow Bot API",
+    description="API for the Rainbow Bot Telegram application",
+    version="1.0.0"
 )
+
+# Your routes should be defined on this 'app' object
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "bot_running": True}
 
 from .config import get_settings
 from .database.connection import engine, get_db
