@@ -2,7 +2,7 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT"
+startCommand = "python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT --workers 1 --keep-alive 65"
 healthcheckPath = "/health"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
