@@ -6,4 +6,4 @@ nixPkgs = [
 ]
 
 [start]
-cmd = "cd /app && python -c 'import bot.main; print(\"Import successful\")' && python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT --log-level debug"
+cmd = "cd /app && python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT"
