@@ -10,3 +10,7 @@ cmds = [
 
 [start]
 cmd = "/app/.venv/bin/python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT"
+
+# Force Python, ignore Node.js
+[phases.build]
+cmds = ["echo 'Python app - no build step needed'"]

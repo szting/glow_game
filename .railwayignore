@@ -1,5 +1,24 @@
+# Node.js files
 node_modules/
 package*.json
+package-lock.json
 *.js
 *.ts
+*.jsx
+*.tsx
 src/
+public/
+dist/
+build/
+
+# Frontend build files
+vite.config.ts
+tailwind.config.js
+postcss.config.js
+eslint.config.js
+tsconfig*.json
+
+# Other files
+.env
+.env.local
+.env.*.local
