@@ -1,7 +1,6 @@
-# Node.js files
+# Force ignore everything Node.js
 node_modules/
 package*.json
-package-lock.json
 *.js
 *.ts
 *.jsx
@@ -10,15 +9,18 @@ src/
 public/
 dist/
 build/
-
-# Frontend build files
 vite.config.ts
 tailwind.config.js
 postcss.config.js
 eslint.config.js
 tsconfig*.json
 
-# Other files
-.env
-.env.local
-.env.*.local
+# Keep only Python files
+!bot/
+!requirements.txt
+!railway.toml
+!nixpacks.toml
+!README.md
+!alembic.ini
+!migrations/
+!crowdsource/
