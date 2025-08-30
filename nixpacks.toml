@@ -2,20 +2,8 @@
 nixPkgs = [
     "python311", 
     "python311Packages.fastapi",
-    "python311Packages.uvicorn",
-    "python311Packages.sqlalchemy",
-    "python311Packages.alembic",
-    "python311Packages.psycopg2",
-    "python311Packages.pydantic",
-    "python311Packages.pydantic-settings",
-    "python311Packages.pillow",
-    "python311Packages.aiohttp",
-    "python311Packages.apscheduler",
-    "python311Packages.openai",
-    "python311Packages.pytz",
-    "python311Packages.pytest",
-    "python311Packages.pytest-asyncio"
+    "python311Packages.uvicorn"
 ]
 
 [start]
-cmd = "cd /app && python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT --log-level debug"
+cmd = "cd /app && python -c 'import bot.main; print(\"Import successful\")' && python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT --log-level debug"
