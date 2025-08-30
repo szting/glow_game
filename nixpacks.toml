@@ -18,4 +18,4 @@ nixPkgs = [
 ]
 
 [start]
-cmd = "uvicorn bot.main:app --host 0.0.0.0 --port $PORT"
+cmd = "cd /app && python -m uvicorn bot.main:app --host 0.0.0.0 --port $PORT --log-level debug"
